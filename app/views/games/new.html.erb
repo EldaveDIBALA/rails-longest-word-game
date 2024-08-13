@@ -1,0 +1,19 @@
+<div class="container mt-4" style="text-align: center;">
+  <h1 style="margin-bottom: 20px;">New game</h1>
+  <div style="display: flex; gap: 40px; justify-content: center; align-items: center; margin-top: 10px;">
+    <% @letters.each do |letter| %> 
+      <div style="background-color: skyblue; color: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="input-group mb-3" style="marigin-top: 20px; display: flex; flex-direction: column; align-items: center;">
+    <p style="margin-bottom: 10px;">What is the longest word you can find?</p>
+    <form action="/score" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon2" style="width: 300px; margin-bottom: 10px;">
+      <button type="submit" class="btn btn-primary" id="button-addon2" style="width: 100px; background-color: #007bff; color: white;">Play</button>
+    </form>
+  </div>
+</div>
